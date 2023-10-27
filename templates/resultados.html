@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resultados da Pesquisa</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      background-color: #3498db;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      margin: 0;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    li {
+      background-color: #fff;
+      margin: 10px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      flex: 1;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    li:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+<h1>Resultados da Pesquisa</h1>
+<ul>
+  {% for livro in resultados %}
+  <li>{{ livro.titulo }} - {{ livro.autor }} ({{ livro.exemplares_disponiveis }} exemplares disponíveis)</li>
+  {% endfor %}
+</ul>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Catálogo de Livros</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      background-color: #3498db;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      margin: 0;
+    }
+
+    h2 {
+      margin: 20px 0;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    li {
+      background-color: #fff;
+      margin: 10px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      flex: 1;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    li:hover {
+      transform: scale(1.05);
+    }
+
+    form {
+      background-color: #f1f1f1;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      margin: 20px;
+    }
+
+    input[type="text"] {
+      width: 75%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #2676b3;
+    }
+  </style>
+</head>
+<body>
+<h1>Catálogo de Livros</h1>
+<form action="/cadastrar_livro" method="post">
+  <h2>Cadastrar Livro</h2>
+  <table>
+    <tr>
+      <td>Título:</td>
+      <td><input type="text" name="titulo"></td>
+    </tr>
+    <tr>
+      <td>Autor:</td>
+      <td><input type="text" name="autor"></td>
+    </tr>
+    <tr>
+      <td>Exemplares Disponíveis:</td>
+      <td><input type="text" name="exemplares_disponiveis"></td>
+    </tr>
+  </table>
+  <input type="submit" value="Cadastrar Livro">
+</form>
+<form action "/pesquisar_por_titulo" method="post">
+<h2>Pesquisar Livro por Título</h2>
+Título: <input type="text" name="titulo"><br>
+<input type="submit" value="Pesquisar">
+</form>
+<form action="/pesquisar_por_autor" method="post">
+  <h2>Pesquisar Livro por Autor</h2>
+  Autor: <input type="text" name="autor"><br>
+  <input type="submit" value="Pesquisar">
+</form>
+<h2>Lista de Livros</h2>
+<ul>
+  {% for livro in catalogo %}
+  <li>
+    Título: {{ livro.titulo }}<br>
+    Autor: {{ livro.autor }}<br>
+    Exemplares Disponíveis: {{ livro.exemplares_disponiveis }}
+  </li>
+  {% endfor %}
+</ul>
+</body>
+</html>
